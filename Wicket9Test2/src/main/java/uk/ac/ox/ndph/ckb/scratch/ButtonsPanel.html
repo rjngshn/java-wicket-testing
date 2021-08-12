@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Copyright 2021 rajanis.
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+    <head>
+        <title>Buttons panel</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <wicket:panel>
+            <input id="cmdOpenDialog" wicket:id="cmdOpenDialog" type="button" name="cmdOpenDialog" value="Open modal dialog"/>
+            <input id="cmdOpenAjaxDialog" wicket:id="cmdOpenAjaxDialog" type="button" name="cmdOpenAjaxDialog" value="Open ajax modal dialog"/>            
+            <div wicket:id="modalWindow"></div>
+            <wicket:fragment wicket:id="fragment">
+                <h1><label wicket:id="titleLabel"/></h1>
+                <h2>Modal window</h2>
+                <p>
+                    This text is added in buttons panel, not main window
+                </p>
+                <p>
+                    still modal window works 
+                </p>
+                <p>
+                    check how this can be used in main form. Was button a problem?
+                </p>
+                <input id="cmdSubmit" wicket:id="cmdSubmit" type="button" name="submit" value="Submit"/>
+                <input id="cmdCancel" wicket:id="cmdCancel" type="button" name="cancel" value="Cancel"/>
+            </wicket:fragment>
+        </wicket:panel>
+    </body>
+</html>
