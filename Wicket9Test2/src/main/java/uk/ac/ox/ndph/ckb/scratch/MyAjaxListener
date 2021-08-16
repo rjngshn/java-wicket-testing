@@ -1,0 +1,27 @@
+/*
+ * Copyright 2021 rajanis.
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+package uk.ac.ox.ndph.ckb.scratch;
+
+import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
+import org.apache.wicket.ajax.AjaxChannel;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
+
+/**
+ * @date 2021-08-16
+ * @author rajanis
+ */
+public class MyAjaxListener implements AjaxRequestTarget.IListener {
+    private static final AjaxChannel ACTIVE_CHANNEL = 
+            new AjaxChannel(AjaxChannel.DEFAULT_NAME, AjaxChannel.Type.ACTIVE);
+
+    @Override
+    public void updateAjaxAttributes(AbstractDefaultAjaxBehavior behavior, AjaxRequestAttributes attributes) {
+        attributes.setChannel(ACTIVE_CHANNEL);
+    }
+}
