@@ -31,10 +31,24 @@ public class HomePage extends WebPage {
         lblCloseBy.setOutputMarkupId(true);
         queue (lblCloseBy);
         queue(new ButtonsPanel("buttonsPanel", lblCloseBy));
+        System.out.println("HomePage:isStateless:" + Boolean.toString(this.isStateless()));
     }
+
+    @Override
+    protected void onBeforeRender() {
+        super.onBeforeRender();
+        System.out.println("HomePage:isStateless:OnBeforeRender:" + Boolean.toString(this.isStateless()));
+    }    
+
+    @Override
+    protected void onRender() {
+        super.onRender();
+        System.out.println("HomePage:isStateless:OnRender:" + Boolean.toString(this.isStateless()));
+    }    
 
     @Override
     protected void onInitialize() {
         super.onInitialize();
-    }    
+        System.out.println("HomePage:isStateless:OnInitialize:" + Boolean.toString(this.isStateless()));
+    }   
 }
