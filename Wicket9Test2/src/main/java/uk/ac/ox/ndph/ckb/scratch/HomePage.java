@@ -25,6 +25,7 @@ import org.apache.wicket.markup.html.basic.Label;
 public class HomePage extends WebPage {
     private static final long serialVersionUID = 1L;
     Label lblCloseBy;
+    int currentCount;
     public HomePage() {
         System.out.println("HomePage:Constructor");
         lblCloseBy = new Label("closedBy", "");
@@ -32,23 +33,20 @@ public class HomePage extends WebPage {
         queue (lblCloseBy);
         queue(new ButtonsPanel("buttonsPanel", lblCloseBy));
         System.out.println("HomePage:isStateless:" + Boolean.toString(this.isStateless()));
+        currentCount = 0;
+        add(new AjaxNewWindowNotifyingBehavior(){
+            @Override
+            protected void onNewWindow(AjaxRequestTarget target) {
+                System.out.println("HomePage:AjaxNewWindowNotifyingBehavior:onNewWindow" + "render count:" + currentCount);
+                if (currentCount > 1)
+                    setResponsePage(HomePage.class);
+            }
+        });
     }
-
     @Override
-    protected void onBeforeRender() {
-        super.onBeforeRender();
-        System.out.println("HomePage:isStateless:OnBeforeRender:" + Boolean.toString(this.isStateless()));
-    }    
-
-    @Override
-    protected void onRender() {
-        super.onRender();
-        System.out.println("HomePage:isStateless:OnRender:" + Boolean.toString(this.isStateless()));
-    }    
-
-    @Override
-    protected void onInitialize() {
-        super.onInitialize();
-        System.out.println("HomePage:isStateless:OnInitialize:" + Boolean.toString(this.isStateless()));
-    }   
+    protected void onConfigure() {
+        super.onConfigure();
+        currentCount = this.getRenderCount();
+        System.out.println("HomePage:OnConfigure:Current count: " + currentCount);
+    }
 }
