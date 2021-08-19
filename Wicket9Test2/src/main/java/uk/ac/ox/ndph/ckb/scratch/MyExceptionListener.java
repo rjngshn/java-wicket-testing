@@ -29,15 +29,6 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
  * @author rajanis
  */
 class MyExceptionListener implements IRequestCycleListener {
-    @Override
-    public void onBeginRequest(RequestCycle cycle) {
-        System.out.println("MyExceptionListener:onBeginRequest");
-    }
-
-    @Override
-    public void onEndRequest(RequestCycle cycle) {
-        System.out.println("MyExceptionListener:onEndRequest");
-    }
 
     @Override
     public void onExceptionRequestHandlerResolved(RequestCycle cycle, IRequestHandler handler, Exception exception) {
