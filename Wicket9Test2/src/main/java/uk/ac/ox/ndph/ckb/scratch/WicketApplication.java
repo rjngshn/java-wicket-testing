@@ -37,7 +37,6 @@ public class WicketApplication extends WebApplication
 			.add(CSPDirective.STYLE_SRC, "https://fonts.googleapis.com/css")
 			.add(CSPDirective.FONT_SRC, "https://fonts.gstatic.com");
                 this.getRequestCycleListeners().add(new MyExceptionListener());
-                this.getAjaxRequestTargetListeners().add(new MyAjaxListener());
 		// add your configuration here
 	}
 }
