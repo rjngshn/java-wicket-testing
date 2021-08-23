@@ -38,8 +38,8 @@ public class HomePage extends WebPage {
             @Override
             protected void onNewWindow(AjaxRequestTarget target) {
                 System.out.println("HomePage:AjaxNewWindowNotifyingBehavior:onNewWindow" + "render count:" + currentCount);
-                if (currentCount > 1)
-                    setResponsePage(HomePage.class);
+                super.onNewWindow(target);
+                setResponsePage(HomePage.class);
             }
         });
     }
